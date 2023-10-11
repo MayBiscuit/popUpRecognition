@@ -25,6 +25,7 @@
 
 storage.googleapis.com
 runs/*
+data_pop_ups/*
 data/*
 data/images/*
 !data/*.yaml
