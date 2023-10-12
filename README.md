@@ -1,9 +1,7 @@
 # 功能:识别弹窗
 1. 输入：
-
 ![img.png](img.png)
 2. 输出：
-
 ![img_1.png](img_1.png)
 
 # 训练方式
@@ -17,7 +15,6 @@
 3. 结果保存在 runs\detect下的exp文件夹内
 
 # 其他
-
 1. 权重文件在.\runs\train\exp13\weights\best.pt下
-2. 标注数据未上传，原文件夹为：
-![img.png](img.png)
+2. 标注数据在.\data_pop_ups下：
+![img_2.png](img_2.png)
