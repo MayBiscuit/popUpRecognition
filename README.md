@@ -11,7 +11,7 @@
 
 # 使用方式
 1. 将待识别图片保存在 data\images_pop_ups 文件夹下
-2. 运行 python .\detect.py --source .\data\images_pop_ups --weights .\runs\train\exp13\weights\best.pt
+2. 运行 python .\detect.py --source .\data\images_pop_ups --weights .\runs\train\exp15\weights\best.pt
 3. 结果保存在 runs\detect下的exp文件夹内
 
 # 其他
