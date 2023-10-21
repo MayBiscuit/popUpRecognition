@@ -31,11 +31,11 @@ def make_empty_txt(in_path, out_path):
             with open(txt_filename, "w") as f:
                 pass
 
-name_unchanged_file_folder = "../data/images_pop_ups"
+name_unchanged_file_folder = "../data_detect/images_origin"
 name_prefix = 200000
 negative_image_folder = "./pop_up_data_negative"
 negative_txt_folder = "./pop_up_data_negative"
 
 change_filename(name_unchanged_file_folder, name_prefix)
-make_empty_txt(negative_image_folder, negative_txt_folder)
+# make_empty_txt(negative_image_folder, negative_txt_folder)
 

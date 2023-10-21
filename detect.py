@@ -63,9 +63,11 @@ def run(
         max_det=1000,  # maximum detections per image
         device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
         view_img=False,  # show results
-        save_txt=False,  # save results to *.txt
+        # save_txt=False,  # save results to *.txt
+        save_txt=True,
         save_csv=False,  # save results in CSV format
-        save_conf=False,  # save confidences in --save-txt labels
+        # save_conf=False,  # save confidences in --save-txt labels
+        save_conf=True,
         save_crop=False,  # save cropped prediction boxes
         nosave=False,  # do not save images/videos
         classes=None,  # filter by class: --class 0, or --class 0 2 3
@@ -150,6 +152,7 @@ def run(
                 writer.writerow(data)
 
         # Process predictions
+        # origin_undrew_flag = True
         for i, det in enumerate(pred):  # per image
             seen += 1
             if webcam:  # batch_size >= 1
@@ -165,6 +168,15 @@ def run(
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
             imc = im0.copy() if save_crop else im0  # for save_crop
             annotator = Annotator(im0, line_width=line_thickness, example=str(names))
+
+            # # 在处理前的图片上画图
+            # if len(det):
+            #     annotator = Annotator(original_im, line_width=line_thickness, example=str(names))
+            #     for *xyxy, conf, cls in reversed(det):
+            #         c = int(cls)  # integer class
+            #         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
+            #         annotator.box_label(xyxy, label, color=colors(c, True))
+
             if len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()
@@ -185,6 +197,8 @@ def run(
                         write_to_csv(p.name, label, confidence_str)
 
                     if save_txt:  # Write to file
+                        print("note here")
+                        print(txt_path)
                         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         line = (cls, *xywh, conf) if save_conf else (cls, *xywh)  # label format
                         with open(f'{txt_path}.txt', 'a') as f:

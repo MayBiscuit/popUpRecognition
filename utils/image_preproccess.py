@@ -23,8 +23,16 @@ def enhance_contrast(image, brightness_factor, contrast_factor):
 
     return contrasted
 
-input_dir = "../data/images_pop_ups"
-output_dir = "../data/images_pop_ups"
+# 训练时
+# input_dir = "../data/train/images"
+# output_dir = "../data/train/images"
+#
+# input_dir = "../data/valid/images"
+# output_dir = "../data/valid/images"
+
+# 检测时
+input_dir = "../data_detect/images_origin"
+output_dir = "../data_detect/images_proccessed"
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
