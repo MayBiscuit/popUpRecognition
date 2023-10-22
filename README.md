@@ -15,9 +15,9 @@
 
 # 使用方式
 1. 将待识别图片保存在 data_detect\images_origin 文件夹下
-2. 修改文件内路径并运行 python .\utils\image_preprocess.py
+2. 运行 python .\utils\image_preprocess.py
 3. 运行 python .\detect.py --source .\data\images_pop_ups --weights .\runs\train\exp15\weights\best.pt --save-txt --save-conf
-4. 修改文件内路径并运行 python .\utils\redraw.py
+4. 修改redraw文件内路径并运行 python .\utils\redraw.py
 5. 结果保存在 data_detect\images_detected下
 
 # 其他
